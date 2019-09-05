@@ -1500,7 +1500,7 @@ class OpenFiles
   private:
     static CRITICAL_SECTION s_csLock;
     static DWORD            s_nHandles;
-    static SLOT             s_rHandles[4049];
+    static SLOT             s_rHandles[44049];
 
   private:
     static SLOT& HashToSlot(HANDLE handle)
@@ -1548,7 +1548,7 @@ class OpenFiles
 
 CRITICAL_SECTION    OpenFiles::s_csLock;  // Guards access to OpenFile stuctures.
 DWORD               OpenFiles::s_nHandles = 0;
-OpenFiles::SLOT     OpenFiles::s_rHandles[4049];
+OpenFiles::SLOT     OpenFiles::s_rHandles[44049];
 
 VOID OpenFiles::Initialize()
 {
