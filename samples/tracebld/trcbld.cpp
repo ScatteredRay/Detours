@@ -4355,6 +4355,7 @@ LONG WINAPI DetourAttachIf(PVOID *ppPointer, PVOID pDetour)
 int WINAPI Mine_EntryPoint(VOID)
 {
     // This function is invoked instead of the process EntryPoint (Real_EntryPoint).
+    DWORD dwProcBeg = GetTickCount();
 
     TblogOpen();
 
@@ -4466,6 +4467,8 @@ int WINAPI Mine_EntryPoint(VOID)
         if (HasChar(pwzLine, '>')) {
             Tblog(" redirects=\"true\"");
         }
+
+        Tblog(" time=\"%d\"", dwProcBeg);
 
         Tblog(" xmlns:t=\"http://schemas.microsoft.com/research/tracebld/2008\">\n");
 

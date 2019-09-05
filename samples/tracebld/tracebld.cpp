@@ -329,6 +329,8 @@ DWORD WINAPI WorkerThread(LPVOID pvVoid)
         }
         else {
             if (nBytes <= offsetof(TBLOG_MESSAGE, szMessage)) {
+                DWORD dwProcEnd = GetTickCount();
+                pClient->LogMessageV("<t:ProcEnd time=\"%d\"/>", dwProcEnd);
                 pClient->LogMessageV("</t:Process>\n");
                 CloseConnection(pClient);
                 continue;
